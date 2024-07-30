@@ -6,6 +6,7 @@ define('RED', "\033[0;31m");
 define('GREEN', "\033[0;32m");
 define('YELLOW', "\033[0;33m");
 define('NC', "\033[0m");
+var url_password = 'https://pastebin.com/raw/ZA8yLWi5':
 
 // Display welcome message
 function display_welcome() {
@@ -46,53 +47,8 @@ function get_correct_token_from_url($url) {
     return trim($response);
 }
 
-function input_and_save_token($correct_token, $token_file) {
-    echo RED . "Token tidak valid atau tidak ditemukan.\n" . NC;
-    echo "Silakan masukkan token yang benar: ";
-    $handle = fopen("php://stdin", "r");
-    $input_token = trim(fgets($handle));
 
-    if ($input_token === $correct_token) {
-        $token_data = json_encode(['token' => $input_token], JSON_PRETTY_PRINT);
-        file_put_contents($token_file, $token_data);
-        echo GREEN . "Token berhasil disimpan.\n" . NC;
-    } else {
-        echo RED . "Token salah. Akses ditolak.\n" . NC;
-        exit(1);
-    }
-}
-
-function check_token() {
-    echo "\n";
-    echo BLUE . "[+] =============================================== [+]" . NC . "\n";
-    echo BLUE . "[+]               LICENSY FOXSTORE OFFC             [+]" . NC . "\n";
-    echo BLUE . "[+] =============================================== [+]" . NC . "\n";
-    echo "\n";
-
-    $token_file = 'token.json';
-    $correct_token_url = 'https://pastebin.com/raw/ZA8yLWi5';
-    $correct_token = get_correct_token_from_url($correct_token_url);
-
-    if (file_exists($token_file)) {
-        $token_data = json_decode(file_get_contents($token_file), true);
-        if (!$token_data || !isset($token_data['token'])) {
-            echo RED . "Error: Invalid token.json file format.\n" . NC;
-            exit(1);
-        }
-
-        $stored_token = $token_data['token'];
-
-        if ($stored_token === $correct_token) {
-            echo GREEN . "AKSES BERHASIL\n" . NC;
-        } else {
-            echo RED . "AKSES GAGAL\n" . NC;
-            //input_and_save_token($correct_token, $token_file);
-        }
-    } else {
-        //input_and_save_token($correct_token, $token_file);
-    }
-    system('clear');
-}
+console.log(get_correct_token_from_url(url_password);)
 
 
 
@@ -120,6 +76,7 @@ function install_jq() {
     sleep(1);
     system('clear');
 }
+
 
 
 
@@ -283,8 +240,8 @@ function uninstall_theme() {
 }
 
 // Main script
-//display_welcome();
-//install_jq();
+display_welcome();
+install_jq();
 check_token();
 
 while (true) {
