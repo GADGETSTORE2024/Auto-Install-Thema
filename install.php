@@ -6,7 +6,7 @@ define('RED', "\033[0;31m");
 define('GREEN', "\033[0;32m");
 define('YELLOW', "\033[0;33m");
 define('NC', "\033[0m");
-var url_password = 'https://pastebin.com/raw/ZA8yLWi5';
+$url_password = 'https://pastebin.com/raw/ZA8yLWi5';
 
 // Display welcome message
 function display_welcome() {
@@ -48,7 +48,7 @@ function get_correct_token_from_url($url) {
 }
 
 
-console.log(get_correct_token_from_url(url_password);)
+console.log(get_correct_token_from_url($url_password);)
 
 
 
