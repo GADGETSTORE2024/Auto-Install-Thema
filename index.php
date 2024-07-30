@@ -122,22 +122,6 @@ function install_jq() {
 }
 
 
-function input_and_save_token($correct_token, $token_file) {
-    while (true) {
-        echo YELLOW . "MASUKAN AKSES TOKEN :" . NC . "\n";
-        $user_token = trim(fgets(STDIN));
-
-        if ($user_token === $correct_token) {
-            $token_data = json_encode(['token' => $user_token], JSON_PRETTY_PRINT);
-            file_put_contents($token_file, $token_data);
-            echo GREEN . "AKSES BERHASIL\n" . NC;
-            break;
-        } else {
-            echo RED . "AKSES GAGAL, SILAHKAN COBA LAGI.\n" . NC;
-        }
-    }
-}
-
 // Install theme
 function install_theme() {
     while (true) {
